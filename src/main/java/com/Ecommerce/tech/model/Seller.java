@@ -7,15 +7,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
-@Table( name = "buyer")
-public class Buyer {
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table( name = "seller")
+public class Seller {
     @Id
     @GeneratedValue( strategy = GenerationType.UUID )
     private UUID id;
@@ -30,11 +32,20 @@ public class Buyer {
     @Column( nullable = false )
     private String password;
 
-    @Column( length = 15, nullable = false, unique = true)
+    @Column( length = 15, nullable = false, unique = true )
     private String phone;
 
     @Column( name = "image_path" )
     private String imagePath;
+
+    @Column( columnDefinition = "TEXT")
+    private String description;
+
+    @Column( name = "total_products" )
+    private int totalProducts = 0;
+
+    @Column( name = "avg_rating", precision = 3, scale = 2 )
+    private BigDecimal avgRating = BigDecimal.ZERO;
 
     @Enumerated( EnumType.STRING )
     private UserStatus status = UserStatus.ENABLED;
@@ -43,7 +54,6 @@ public class Buyer {
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn( name = "preferred_category_id" )
-    private Category preferredCategory;
-
+    @JoinColumn( name = "main_category_id" )
+    private Category mainCategory;
 }
