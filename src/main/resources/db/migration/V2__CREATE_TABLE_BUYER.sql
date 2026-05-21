@@ -6,7 +6,7 @@ CREATE TABLE buyer (
     phone VARCHAR(30),
     image_path TEXT,
     status user_status DEFAULT 'ACTIVE',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     preferred_category_id BIGINT
 
     CONSTRAINT add fk_buyer_preferred_category(

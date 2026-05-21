@@ -8,12 +8,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.UUID;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-@Table( name = "buyer")
+@Table( name = "buyer" )
 public class Buyer {
 
     @Id
@@ -39,10 +41,10 @@ public class Buyer {
     @Enumerated( EnumType.STRING )
     private UserStatus status = UserStatus.ENABLED;
 
-    @Column( name = "created_at", nullable = false )
-    private LocalDateTime createdAt;
+    @Column( name = "created_at", nullable = false, updatable = false )
+    private OffsetDateTime createdAt = OffsetDateTime.now(ZoneOffset.UTC);
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.LAZY )
     @JoinColumn( name = "preferred_category_id" )
     private Category preferredCategory;
 

@@ -1,19 +1,20 @@
 CREATE TABLE product (
     id BIGSERIAL PRIMARY KEY,
-    seller_id BIGINT NOT NULL,
-    category_id BIGINT NOT NULL,
 
     name VARCHAR(200) NOT NULL,
-    description TEXT,
+    description VARCHAR(5000),
 
     price DECIMAL(10,2) NOT NULL,
     quantity INT DEFAULT 0,
 
     sku VARCHAR(100) UNIQUE,
 
-    status VARCHAR(30) DEFAULT 'ACTIVE',
+    status user_status DEFAULT 'ENABLED',
 
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    seller_id BIGINT NOT NULL,
+    category_id BIGINT NOT NULL,
 
     CONSTRAINT fk_product_seller
         FOREIGN KEY (seller_id)

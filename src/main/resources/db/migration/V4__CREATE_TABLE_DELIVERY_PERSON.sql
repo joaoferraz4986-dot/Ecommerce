@@ -22,6 +22,5 @@ CREATE TABLE delivery_person (
         CHECK (rating >= 0 AND rating <= 5),
 
     status user_status DEFAULT 'ENABLED',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

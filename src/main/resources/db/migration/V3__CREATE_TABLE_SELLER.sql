@@ -9,7 +9,7 @@ CREATE TABLE seller (
     total_products INT DEFAULT 0,
     avg_rating DECIMAL(3,2) DEFAULT 0,
     status user_status DEFAULT 'ACTIVE',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
     main_category_id BIGINT
 
         CONSTRAINT add fk_seller_main_category(
