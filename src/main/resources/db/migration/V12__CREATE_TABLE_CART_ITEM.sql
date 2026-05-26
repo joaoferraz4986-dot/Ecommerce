@@ -1,11 +1,11 @@
 CREATE TABLE cart_item (
     id BIGSERIAL PRIMARY KEY,
 
+    quantity INT NOT NULL,
+
     cart_id BIGINT NOT NULL,
     product_id BIGINT NOT NULL,
     variation_id BIGINT,
-
-    quantity INT NOT NULL,
 
     CONSTRAINT fk_cart_item_cart
         FOREIGN KEY (cart_id)

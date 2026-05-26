@@ -1,14 +1,15 @@
 CREATE TABLE stock (
     id BIGSERIAL PRIMARY KEY,
 
+    quantity INT DEFAULT 0,
+    min_quantity INT DEFAULT 0,
+
+    last_updated TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+
     product_id BIGINT NOT NULL,
     variation_id BIGINT,
     supplier_id BIGINT,
 
-    quantity INT DEFAULT 0,
-    min_quantity INT DEFAULT 0,
-
-    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_stock_product
         FOREIGN KEY (product_id)

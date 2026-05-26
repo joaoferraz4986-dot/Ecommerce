@@ -13,4 +13,4 @@ CREATE TABLE variation (
         FOREIGN KEY (product_id)
         REFERENCES product(id)
         ON DELETE CASCADE
-);
+);@

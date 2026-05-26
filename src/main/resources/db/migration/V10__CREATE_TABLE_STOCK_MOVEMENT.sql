@@ -9,7 +9,7 @@ CREATE TABLE stock_movement (
 
     description TEXT,
 
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_movement_stock
         FOREIGN KEY (stock_id)

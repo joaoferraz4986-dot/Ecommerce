@@ -7,7 +7,7 @@ CREATE TABLE buyer (
     image_path TEXT,
     status user_status DEFAULT 'ACTIVE',
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    preferred_category_id BIGINT
+    preferred_category_id BIGINT,
 
     CONSTRAINT add fk_buyer_preferred_category(
         FOREIGN KEY (preferred_category_id)

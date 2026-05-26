@@ -9,7 +9,7 @@ CREATE TABLE coupon (
     max_uses INT,
     used_count INT DEFAULT 0,
 
-    status VARCHAR(30) DEFAULT 'ACTIVE',
+    status VARCHAR(30) DEFAULT 'ENABLED',
 
-    expires_at TIMESTAMP
+    expires_at TIMESTAMPTZ
 );
