@@ -6,12 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
+import java.util.List;
 
 @Entity
 @Getter
@@ -53,4 +52,8 @@ public class Product {
     @JoinColumn( name = "category_id" )
     @Column( nullable = false )
     private Category category;
+
+    @OneToMany( fetch = FetchType.EAGER )
+    @JoinColumn( name = "product" )
+    private List<ProductImage> productImageList;
 }
